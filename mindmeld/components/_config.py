@@ -15,7 +15,7 @@
 This module contains the Config class.
 """
 import copy
-import imp
+import importlib
 import logging
 import os
 import warnings
@@ -976,7 +976,7 @@ def _expand_group_config(group_config):
 def _get_config_module(app_path):
     module_path = path.get_config_module_path(app_path)
 
-    config_module = imp.load_source(
+    config_module = importlib.load_source(
         "config_module_" + os.path.basename(app_path), module_path
     )
     return config_module
